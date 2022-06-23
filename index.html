@@ -17,6 +17,8 @@
         max="200"
         value="10"
         data-sizing="px"
+        data-name="wes"
+        data-cool="💩 "
       />
 
       <label for="blur">Blur:</label>
@@ -68,6 +70,11 @@
         margin-bottom: 50px;
       }
 
+      a {
+        color: var(--base);
+        text-decoration: none;
+      }
+
       input {
         width: 100px;
       }
@@ -75,6 +82,16 @@
 
     <script>
       const inputs = document.querySelectorAll(".controls input");
+
+      const handleUpdate = () => {
+        const suffix = this.dataset.sizing || "";
+        console.log(suffix);
+      };
+
+      inputs.forEach((input) => input.addEventListener("change", handleUpdate));
+      inputs.forEach((input) =>
+        input.addEventListener("mousemove", handleUpdate)
+      );
     </script>
   </body>
 </html>
